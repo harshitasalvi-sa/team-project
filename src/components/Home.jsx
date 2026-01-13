@@ -7,7 +7,7 @@ const Home = () => {
 
         <div className="container">
             <div className="project">
-
+                {/* Harshita - weather app */}
             </div>
             <div className="project">
 
