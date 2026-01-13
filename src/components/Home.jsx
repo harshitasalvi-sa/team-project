@@ -1,6 +1,4 @@
 import React from 'react'
-import "./Home.css"
-import "./Todo.css"
 import Todo from './Todo.jsx'
 import Weather from './Weather'
 import Calculator from './Calculator'
@@ -12,7 +10,9 @@ const Home = () => {
 
         <div className="container">
             <div className="project">
-                <Weather/>
+                
+                <NavLink to="/weather"><h1>Weather App by Harshita</h1></NavLink>
+
             </div>
             <div className="project">
                 
