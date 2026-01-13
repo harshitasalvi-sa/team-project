@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import "./Todo.css";
 
-function todo() {
-
- const [task, setTask] = useState("");
+function Todo() {
+  const [task, setTask] = useState("");
   const [deadline, setDeadline] = useState("");
   const [todos, setTodos] = useState(() => {
-  const stored = localStorage.getItem("todos");
-  return stored ? JSON.parse(stored) : [];
-});  
+    const stored = localStorage.getItem("todos");
+    return stored ? JSON.parse(stored) : [];
+  });
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!task.trim()) return;
 
     const newTodo = {
@@ -40,12 +39,12 @@ function todo() {
   };
 
   const undoTodo = (id) => {
-  setTodos((prev) =>
-    prev.map((todo) =>
-      todo.id === id ? { ...todo, completed: false } : todo
-    )
-  );
-};
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: false } : todo
+      )
+    );
+  };
 
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
@@ -54,7 +53,6 @@ function todo() {
   const pendingTodos = todos.filter((todo) => !todo.completed);
   const completedTodos = todos.filter((todo) => todo.completed);
 
-const todo = () => {
   return (
     <div className="todo-container">
       <h1>To-Do App</h1>
@@ -75,7 +73,7 @@ const todo = () => {
 
         <button>Add</button>
       </form>
-      
+
       <h2>Pending Tasks</h2>
       <ul>
         {pendingTodos.map((todo) => (
@@ -87,33 +85,31 @@ const todo = () => {
             </div>
 
             <div className="actions">
-            <button onClick={() => markDone(todo.id)}>Done</button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+              <button onClick={() => markDone(todo.id)}>Done</button>
+              <button onClick={() => deleteTodo(todo.id)}>Delete</button>
             </div>
-
           </li>
         ))}
       </ul>
 
-     <h2>Completed Tasks</h2>
-<ul>
-  {completedTodos.map((todo) => (
-    <li key={todo.id}>
-      <div>
-        <strong>{todo.text}</strong>
-        <p>Completed</p>
-      </div>
+      <h2>Completed Tasks</h2>
+      <ul>
+        {completedTodos.map((todo) => (
+          <li key={todo.id}>
+            <div>
+              <strong>{todo.text}</strong>
+              <p>Completed</p>
+            </div>
 
-     <div className="actions">
-     <button onClick={() => undoTodo(todo.id)}>Undo</button>
-     <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-     </div>
+            <div className="actions">
+              <button onClick={() => undoTodo(todo.id)}>Undo</button>
+              <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-    </li>
-  ))}
-</ul>
-</div>
-  )
-}
-}
-export default todo;
+export default Todo;

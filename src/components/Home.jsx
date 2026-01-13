@@ -1,5 +1,8 @@
 import React from 'react'
 import "./Home.css"
+
+
+
 import "./Todo.css"
 import Todo from './Todo.jsx'
 import Weather from './Weather'
@@ -20,7 +23,8 @@ const Home = () => {
             </div>
             <div className="project">
               {/* Ishika - todo app */}
-                <NavLink to="/Todo"><h1>TodoApp by Ishika</h1></NavLink>
+               <NavLink to="/todo"><h1>TodoApp by Ishika</h1></NavLink>
+
 
             </div>
             <div className="project">

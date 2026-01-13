@@ -1,3 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Calculator from "./components/Calculator";
+import WeatherApi from "./components/WeatherApi";
+import Todo from "./components/Todo.jsx";
+
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -6,7 +12,17 @@ import WeatherApi from './components/WeatherApi';
 import Todo from './components/todo.jsx';
 function App() {
 
+function App() {
   return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/weatherapi" element={<WeatherApi />} />
+        <Route path="/todo" element={<Todo />} />
+      </Routes>
+    </BrowserRouter>
+  );
     <>
       <BrowserRouter>
         <Routes>
@@ -20,4 +36,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
