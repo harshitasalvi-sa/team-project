@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Home.css"
+import Weather from './Weather'
 const Home = () => {
   return (
     <>
@@ -7,7 +8,7 @@ const Home = () => {
 
         <div className="container">
             <div className="project">
-                {/* Harshita - weather app */}
+                <Weather/>
             </div>
             <div className="project">
 
