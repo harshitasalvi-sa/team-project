@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Calculator from './components/Calculator';
 import WeatherApi from './components/WeatherApi';
-import Todo from './components/todo.jsx';
+import Todo from './components/Todo.jsx';
 function App() {
 
   return (
