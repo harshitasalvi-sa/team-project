@@ -18,7 +18,7 @@ const Home = () => {
 
             </div>
             <div className="project">
-
+                <NavLink to="/weatherapi"><h1>Weather App by jatin</h1></NavLink>
             </div>
         </div>
     </>
