@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Calculator from './components/Calculator';
@@ -14,7 +13,7 @@ function App() {
           <Route path="/*" element={<Home />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/weatherapi" element={<WeatherApi />} />
-          <Route path="/todo" element={<Todo/>}
+          <Route path="/todo" element={<Todo/>}/>
         </Routes>
       </BrowserRouter>
     </>
