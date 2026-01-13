@@ -1,5 +1,7 @@
 import React from 'react'
 import "./Home.css"
+import Calculator from './Calculator'
+import { NavLink, Link } from 'react-router-dom';
 const Home = () => {
   return (
     <>
@@ -10,7 +12,7 @@ const Home = () => {
                 {/* Harshita - weather app */}
             </div>
             <div className="project">
-
+                <NavLink to="/calculator"><h1>Calculator by Disha</h1></NavLink>
             </div>
             <div className="project">
 
