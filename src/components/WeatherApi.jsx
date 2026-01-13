@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
-import './weather.css';
+import './weatherapi.css';
 const WeatherApi = () => {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
