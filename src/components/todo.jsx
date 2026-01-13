@@ -1,6 +1,6 @@
-import  './todo.css'
+import  './Todo.css'
 
-const todo = () => {
+const Todo = () => {
     const [task, setTask] = useState("");
       const [deadline, setDeadline] = useState("");
       const [todos, setTodos] = useState(() => {
@@ -113,4 +113,4 @@ const todo = () => {
   );
 }
 
-export default todo
+export default Todo;
