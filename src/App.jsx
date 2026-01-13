@@ -4,6 +4,13 @@ import Calculator from "./components/Calculator";
 import WeatherApi from "./components/WeatherApi";
 import Todo from "./components/Todo.jsx";
 
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Calculator from './components/Calculator';
+import WeatherApi from './components/WeatherApi';
+import Todo from './components/todo.jsx';
+function App() {
 
 function App() {
   return (
@@ -16,6 +23,17 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<Home />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/weatherapi" element={<WeatherApi />} />
+          <Route path="/todo" element={<Todo/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default App;

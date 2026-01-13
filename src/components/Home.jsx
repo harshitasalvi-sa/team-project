@@ -3,6 +3,8 @@ import "./Home.css"
 
 
 
+import "./Todo.css"
+import Todo from './Todo.jsx'
 import Weather from './Weather'
 import Calculator from './Calculator'
 import { NavLink, Link } from 'react-router-dom';
