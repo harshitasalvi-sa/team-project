@@ -1,57 +1,60 @@
-import  './Todo.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 
-const Todo = () => {
-    const [task, setTask] = useState("");
-      const [deadline, setDeadline] = useState("");
-      const [todos, setTodos] = useState(() => {
-      const stored = localStorage.getItem("todos");
-      return stored ? JSON.parse(stored) : [];
-    });  
-      useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos));
-      }, [todos]);
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-    
-        if (!task.trim()) return;
-    
-        const newTodo = {
-          id: Date.now(),
-          text: task,
-          createdAt: new Date().toLocaleString(),
-          deadline,
-          completed: false,
-        };
-    
-        setTodos((prev) => [...prev, newTodo]);
-        setTask("");
-        setDeadline("");
-      };
-    
-      const markDone = (id) => {
-        setTodos((prev) =>
-          prev.map((todo) =>
-            todo.id === id ? { ...todo, completed: true } : todo
-          )
-        );
-      };
-    
-      const undoTodo = (id) => {
-      setTodos((prev) =>
-        prev.map((todo) =>
-          todo.id === id ? { ...todo, completed: false } : todo
-        )
-      );
+function todo() {
+
+ const [task, setTask] = useState("");
+  const [deadline, setDeadline] = useState("");
+  const [todos, setTodos] = useState(() => {
+  const stored = localStorage.getItem("todos");
+  return stored ? JSON.parse(stored) : [];
+});  
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!task.trim()) return;
+
+    const newTodo = {
+      id: Date.now(),
+      text: task,
+      createdAt: new Date().toLocaleString(),
+      deadline,
+      completed: false,
     };
-    
-      const deleteTodo = (id) => {
-        setTodos((prev) => prev.filter((todo) => todo.id !== id));
-      };
-    
-      const pendingTodos = todos.filter((todo) => !todo.completed);
-      const completedTodos = todos.filter((todo) => todo.completed);
-    
+
+    setTodos((prev) => [...prev, newTodo]);
+    setTask("");
+    setDeadline("");
+  };
+
+  const markDone = (id) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: true } : todo
+      )
+    );
+  };
+
+  const undoTodo = (id) => {
+  setTodos((prev) =>
+    prev.map((todo) =>
+      todo.id === id ? { ...todo, completed: false } : todo
+    )
+  );
+};
+
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
+  const pendingTodos = todos.filter((todo) => !todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
+
+const todo = () => {
   return (
     <div className="todo-container">
       <h1>To-Do App</h1>
@@ -110,7 +113,7 @@ const Todo = () => {
   ))}
 </ul>
 </div>
-  );
+  )
 }
-
-export default Todo;
+}
+export default todo;
